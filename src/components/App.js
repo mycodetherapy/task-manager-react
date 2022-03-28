@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import { Switch, Route } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 import TodoStart from "./TodoStart";
 import TodoList from "./TodoList";
 
@@ -11,14 +11,17 @@ function handleStartSubmit() {
 function App() {
   return (
     <div className="page">
-        <Switch>
-          <Route exact path="/">
-            <TodoStart onStart={handleStartSubmit} />
-          </Route>
-          <Route path="/list">
-            <TodoList />
-          </Route>
-        </Switch>
+      <Switch>
+        <Route exact path="/">
+          <Link to="/list">
+          Запланировать событие
+          </Link>
+          {/* <TodoStart onStart={handleStartSubmit} /> */}
+        </Route>
+        <Route path="/list">
+          <TodoList />
+        </Route>
+      </Switch>
     </div>
   );
 }
