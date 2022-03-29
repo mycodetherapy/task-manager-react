@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 import { Link, Switch, Route } from "react-router-dom";
-import { arrTasks, updateDate } from "../utils/constants";
+import { arrTasks, updateDate, idRandom } from "../utils/constants";
 import Main from "./Main/Main";
 
 function App() {
@@ -15,11 +15,9 @@ function App() {
     setTasks([]);
   };
 
-  const handleDeleteTask = (index) => {
-    
-    const x = index - 1;
-    setTasks(tasks.splice(x, 1));
-    console.log(tasks);
+  const handleDeleteTask = (taskId) => {
+    const newTasks = tasks.filter(item => item._id !== taskId);
+    setTasks(newTasks);
   }
 
   return (
@@ -35,7 +33,8 @@ function App() {
             addOneTask={handleAddTask}
             deleteTasks={handleDeleteTasks}
             updateDate={updateDate}
-            deleteOnTask={handleDeleteTask}
+            deleteOneTask={handleDeleteTask}
+            idRandom={idRandom}
           />
         </Route>
       </Switch>

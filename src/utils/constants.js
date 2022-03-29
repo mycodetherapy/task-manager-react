@@ -12,10 +12,14 @@ export const updateDate = () => {
   //return date.toLocaleString("ru", options);
 }
 
+export const idRandom = () => {
+ return Math.random().toString(16).slice(2);
+};
+
 export const arrTasks = [
-  { _id: 1, text: "Потискать котюню", date: updateDate() },
-  { _id: 2, text: "Покормить котюню", date: updateDate() },
-  { _id: 3, text: "Погладить котюню", date: updateDate() },
+  { _id: idRandom(), text: "Потискать котюню", date: updateDate() },
+  { _id: idRandom(), text: "Покормить котюню", date: updateDate() },
+  { _id: idRandom(), text: "Погладить котюню", date: updateDate() },
 ];
 
 //export default arrTasks;

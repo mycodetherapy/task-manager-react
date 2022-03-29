@@ -1,7 +1,14 @@
 import React from "react";
 import Task from "../Task/Task";
 
-function Main({ tasks, addOneTask, deleteTasks, updateDate, deleteOnTask }) {
+function Main({
+  tasks,
+  addOneTask,
+  deleteTasks,
+  updateDate,
+  deleteOneTask,
+  idRandom,
+}) {
   const [taskText, setTaskText] = React.useState("");
 
   function handleSubmit(e) {
@@ -17,7 +24,8 @@ function Main({ tasks, addOneTask, deleteTasks, updateDate, deleteOnTask }) {
 
   const addTask = () => {
     let newTask = {
-      _id: tasks.length + 1,
+      // _id: tasks.length + 1,
+      _id: idRandom(),
       text: taskText,
       date: updateDate(),
     };
@@ -55,7 +63,7 @@ function Main({ tasks, addOneTask, deleteTasks, updateDate, deleteOnTask }) {
             <Task
               key={task._id}
               task={task}
-              deleteOnTask={deleteOnTask}
+              deleteOneTask={deleteOneTask}
             />
           ))}
         </ul>
