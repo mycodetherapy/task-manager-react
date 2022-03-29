@@ -1,11 +1,14 @@
 import React from "react";
+//import { arrTasks } from "../utils/constants";
 
-function Task({text}) {
+function Task({text, date }) {
+
     return (
-<article>
+<article id="">
     <span>
         {text}
     </span>
+    <input type='date' defaultValue={date} />
 </article>
     )
 }

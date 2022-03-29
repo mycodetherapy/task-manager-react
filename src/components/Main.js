@@ -1,12 +1,13 @@
 import React from "react";
 import Task from "./Task";
 
-function Main({ tasks, addOneTask, deleteTasks }) {
+function Main({ tasks, addOneTask, deleteTasks, updateDate, deleteOnTask }) {
   const [taskText, setTaskText] = React.useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     addTask();
+    setTaskText("");
   }
 
   function handleDelete(e) {
@@ -17,14 +18,11 @@ function Main({ tasks, addOneTask, deleteTasks }) {
   const addTask = () => {
     let newTask = {
       _id: tasks.length + 1,
-      text: taskText
-    } 
-     channgeTask(newTask);
-  };
-
-  function channgeTask(newTask) {
+      text: taskText,
+      date: updateDate(),
+    };
     addOneTask(newTask);
-  }
+  };
 
   // React.useEffect(() => {
   //   setTaskText("");
@@ -54,7 +52,13 @@ function Main({ tasks, addOneTask, deleteTasks }) {
       <section className="taskItems">
         <ul className="taskItems__container">
           {tasks.map((task) => (
-            <Task key={task._id} text={task.text} />
+            <Task
+              key={task._id}
+              text={task.text}
+              date={task.date}
+              task={task}
+              deleteOnTask={deleteOnTask}
+            />
           ))}
         </ul>
       </section>
