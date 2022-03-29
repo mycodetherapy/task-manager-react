@@ -1,5 +1,5 @@
 import React from "react";
-import Task from "./Task";
+import Task from "../Task/Task";
 
 function Main({ tasks, addOneTask, deleteTasks, updateDate, deleteOnTask }) {
   const [taskText, setTaskText] = React.useState("");
@@ -54,8 +54,6 @@ function Main({ tasks, addOneTask, deleteTasks, updateDate, deleteOnTask }) {
           {tasks.map((task) => (
             <Task
               key={task._id}
-              text={task.text}
-              date={task.date}
               task={task}
               deleteOnTask={deleteOnTask}
             />

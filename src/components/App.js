@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import { Link, Switch, Route } from "react-router-dom";
 import { arrTasks, updateDate } from "../utils/constants";
-import Main from "./Main";
+import Main from "./Main/Main";
 
 function App() {
   const [tasks, setTasks] = React.useState(arrTasks);

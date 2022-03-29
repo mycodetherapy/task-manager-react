@@ -1,0 +1,10 @@
+.taskItem__text {
+}
+
+.taskItem__text_past {
+    color: red;
+}
+
+.taskItem__date_past {
+    color: red;
+}
