@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import { Link, Switch, Route } from "react-router-dom";
 import { arrTasks, updateDate, idRandom } from "../utils/constants";
+import Header from "./Header/Header";
 import Main from "./Main/Main";
 
 function App() {
@@ -22,10 +23,10 @@ function App() {
 
   return (
     <div className="page">
+      <Header />
       <Switch>
         <Route exact path="/">
-          <Link to="/list">Запланировать событие</Link>
-          {/* <TodoStart onStart={handleStartSubmit} /> */}
+          <Link className="goTo" to="/list">Запланировать событие</Link>
         </Route>
         <Route path="/list">
           <Main

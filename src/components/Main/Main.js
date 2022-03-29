@@ -1,5 +1,6 @@
 import React from "react";
 import Task from "../Task/Task";
+import { Link } from "react-router-dom";
 
 function Main({
   tasks,
@@ -9,32 +10,28 @@ function Main({
   deleteOneTask,
   idRandom,
 }) {
+
   const [taskText, setTaskText] = React.useState("");
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     addTask();
     setTaskText("");
   }
 
-  function handleDelete(e) {
+  const handleDelete = (e) => {
     e.preventDefault();
     deleteTasks();
   }
 
   const addTask = () => {
     let newTask = {
-      // _id: tasks.length + 1,
       _id: idRandom(),
       text: taskText,
       date: updateDate(),
     };
     addOneTask(newTask);
   };
-
-  // React.useEffect(() => {
-  //   setTaskText("");
-  // });
 
   return (
     <main>
@@ -53,9 +50,6 @@ function Main({
         >
           Добавить
         </button>
-        <button className="taskForm__delete" onClick={handleDelete}>
-          Удалить
-        </button>
       </form>
       <section className="taskItems">
         <ul className="taskItems__container">
@@ -68,6 +62,12 @@ function Main({
           ))}
         </ul>
       </section>
+      <button className="taskForm__delete" onClick={handleDelete}>
+          Удалить
+        </button>
+      <Link className="goBack" to="/">
+        Вернуться на главную
+      </Link>
     </main>
   );
 }
