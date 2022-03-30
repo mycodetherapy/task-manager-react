@@ -3,21 +3,14 @@ import React from "react";
 import Task from "../Task/Task";
 //import { Link } from "react-router-dom";
 
-function Main({
-  tasks,
-  addOneTask,
-  updateDate,
-  deleteOneTask,
-  idRandom,
-}) {
-
+function Main({ tasks, addOneTask, updateDate, deleteOneTask, idRandom }) {
   const [taskText, setTaskText] = React.useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addTask();
     setTaskText("");
-  }
+  };
 
   function handleChange(e) {
     setTaskText(e.target.value);
@@ -33,32 +26,27 @@ function Main({
   };
 
   return (
-    <main>
+    <main className="main">
       <form className="taskForm">
-        <input
+        <textarea
           className="taskForm__input"
           type="text"
           onChange={handleChange}
           value={taskText || ""}
           maxLength="240"
-         
         />
         <button
           className="taskForm__submit"
           type="submit"
           onClick={handleSubmit}
         >
-          Добавить
+          Save
         </button>
       </form>
       <section className="taskItems">
         <ul className="taskItems__container">
           {tasks.map((task) => (
-            <Task
-              key={task._id}
-              task={task}
-              deleteOneTask={deleteOneTask}
-            />
+            <Task key={task._id} task={task} deleteOneTask={deleteOneTask} />
           ))}
         </ul>
       </section>

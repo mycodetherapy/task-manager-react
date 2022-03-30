@@ -27,7 +27,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          <Link className="goTo" to="/list">Запланировать событие</Link>
+          <Link className="goTo" to="/list">Add a task</Link>
         </Route>
         <Route path="/list">
           <Main
@@ -37,9 +37,10 @@ function App() {
             deleteOneTask={handleDeleteTask}
             idRandom={idRandom}
           />
-          <Footer deleteTasks={handleDeleteTasks} />
+          
         </Route>
       </Switch>
+      <Footer deleteTasks={handleDeleteTasks} />
     </div>
   );
 }

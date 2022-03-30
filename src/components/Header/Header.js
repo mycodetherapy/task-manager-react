@@ -1,10 +1,12 @@
-import React from 'react';
-import "./Header.css"
+import React from "react";
+import "./Header.css";
 
 function Header() {
-    return (
-        <h1 className='headerTitle'>Менеджер задач</h1>
-    )
+  return (
+    <header className="header">
+      <h1 className="header__title">Task Manager</h1>
+    </header>
+  );
 }
 
 export default Header;
