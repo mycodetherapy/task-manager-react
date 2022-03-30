@@ -1,7 +1,7 @@
 import "../App.css";
 import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
-import { arrTasks, updateDate, idRandom } from "../utils/constants";
+import { arrTasks, updateDate } from "../utils/constants";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
@@ -18,16 +18,18 @@ function App() {
   };
 
   const handleDeleteTask = (taskId) => {
-    const newTasks = tasks.filter(item => item._id !== taskId);
+    const newTasks = tasks.filter((item) => item._id !== taskId);
     setTasks(newTasks);
-  }
+  };
 
   return (
     <div className="page">
       <Header />
       <Switch>
         <Route exact path="/">
-          <Link className="goTo" to="/list">Add a task</Link>
+          <Link className="goTo" to="/list">
+            Add a task
+          </Link>
         </Route>
         <Route path="/list">
           <Main
@@ -35,9 +37,7 @@ function App() {
             addOneTask={handleAddTask}
             updateDate={updateDate}
             deleteOneTask={handleDeleteTask}
-            idRandom={idRandom}
           />
-          
         </Route>
       </Switch>
       <Footer deleteTasks={handleDeleteTasks} />

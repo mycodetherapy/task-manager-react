@@ -1,9 +1,8 @@
 import "./Main.css";
 import React from "react";
 import Task from "../Task/Task";
-//import { Link } from "react-router-dom";
 
-function Main({ tasks, addOneTask, updateDate, deleteOneTask, idRandom }) {
+function Main({ tasks, addOneTask, updateDate, deleteOneTask }) {
   const [taskText, setTaskText] = React.useState("");
 
   const handleSubmit = (e) => {
@@ -16,9 +15,13 @@ function Main({ tasks, addOneTask, updateDate, deleteOneTask, idRandom }) {
     setTaskText(e.target.value);
   }
 
+  const _idRandom = () => {
+    return Math.random().toString(16).slice(2);
+  };
+
   const addTask = () => {
     let newTask = {
-      _id: idRandom(),
+      _id: _idRandom(),
       text: taskText,
       date: updateDate(),
     };
