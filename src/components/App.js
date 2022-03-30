@@ -1,9 +1,10 @@
-import React from "react";
 import "../App.css";
+import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import { arrTasks, updateDate, idRandom } from "../utils/constants";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
+import Footer from "./Footer/Footer";
 
 function App() {
   const [tasks, setTasks] = React.useState(arrTasks);
@@ -32,11 +33,11 @@ function App() {
           <Main
             tasks={tasks}
             addOneTask={handleAddTask}
-            deleteTasks={handleDeleteTasks}
             updateDate={updateDate}
             deleteOneTask={handleDeleteTask}
             idRandom={idRandom}
           />
+          <Footer deleteTasks={handleDeleteTasks} />
         </Route>
       </Switch>
     </div>

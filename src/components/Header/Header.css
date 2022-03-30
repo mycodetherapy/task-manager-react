@@ -1,0 +1,14 @@
+.headerTitle {
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding-top: 38px;
+    padding-bottom: 30px;
+    font-size: 40px;
+}
+
+@media (max-width: 768px) {
+    .headerTitle {
+        font-size: 30px;
+    }
+  }

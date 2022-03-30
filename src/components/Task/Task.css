@@ -1,10 +1,47 @@
+.taskItem {
+  border: 1px solid #999;
+  border-radius: 4px;
+  margin: 0 0 20px;
+  padding: 20px 10px 20px 26px;
+  display: flex;
+}
+
 .taskItem__text {
+  color: #fff;
+  margin-right: 20px;
+  max-width: 100%;
+  min-width: 150px;
+  height: 100%;
+  flex-grow: 1;
+
+  font-size: 24px;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .taskItem__text_past {
-    color: red;
+  color: red;
 }
 
 .taskItem__date_past {
-    color: red;
+  color: red;
+}
+
+.taskItem__remove {
+  border: none;
+  padding: 0;
+  width: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: url(../../images/close-icon-s.svg) no-repeat center;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .taskItem__text {
+    margin-right: 10px;
+  }
 }

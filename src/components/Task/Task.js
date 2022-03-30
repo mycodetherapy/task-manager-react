@@ -22,7 +22,7 @@ function Task({ task, deleteOneTask }) {
   };
 
   return (
-    <article className="taskItem">
+    <li className="taskItem">
       <span className={elementItemText}>{task.text}</span>
       <input
         className={elementItemDate}
@@ -30,10 +30,12 @@ function Task({ task, deleteOneTask }) {
         value={dateTask}
         onChange={(e) => setDateTask(e.target.value)}
       />
-      <button type="submit" onClick={handleItemDtlete}>
-        Delete
-      </button>
-    </article>
+      <button
+        className="taskItem__remove"
+        type="submit"
+        onClick={handleItemDtlete}
+      ></button>
+    </li>
   );
 }
 

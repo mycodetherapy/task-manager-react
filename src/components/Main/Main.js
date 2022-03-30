@@ -1,11 +1,11 @@
+import "./Main.css";
 import React from "react";
 import Task from "../Task/Task";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 function Main({
   tasks,
   addOneTask,
-  deleteTasks,
   updateDate,
   deleteOneTask,
   idRandom,
@@ -19,9 +19,8 @@ function Main({
     setTaskText("");
   }
 
-  const handleDelete = (e) => {
-    e.preventDefault();
-    deleteTasks();
+  function handleChange(e) {
+    setTaskText(e.target.value);
   }
 
   const addTask = () => {
@@ -39,9 +38,10 @@ function Main({
         <input
           className="taskForm__input"
           type="text"
-          required
-          value={taskText}
-          onChange={(e) => setTaskText(e.target.value)}
+          onChange={handleChange}
+          value={taskText || ""}
+          maxLength="240"
+         
         />
         <button
           className="taskForm__submit"
@@ -62,12 +62,6 @@ function Main({
           ))}
         </ul>
       </section>
-      <button className="taskForm__delete" onClick={handleDelete}>
-          Удалить
-        </button>
-      <Link className="goBack" to="/">
-        Вернуться на главную
-      </Link>
     </main>
   );
 }
