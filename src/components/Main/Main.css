@@ -49,7 +49,9 @@
   opacity: 1;
 }
 
-.taskItems {
+.taskForm__submit_inactive{
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .taskItems__container {

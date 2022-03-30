@@ -35,11 +35,13 @@ function Main({ tasks, addOneTask, updateDate, deleteOneTask }) {
           className="taskForm__input"
           type="text"
           onChange={handleChange}
-          value={taskText || ""}
+          value={taskText}
           maxLength="240"
         />
         <button
-          className="taskForm__submit"
+          className={`taskForm__submit ${
+            !taskText && "taskForm__submit_inactive"
+          }`}
           type="submit"
           onClick={handleSubmit}
         >
