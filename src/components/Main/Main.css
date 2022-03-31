@@ -20,7 +20,7 @@
   border-radius: 4px;
   margin-right: 20px;
   max-width: 100%;
-  min-width: 180px;
+  /* min-width: 100px; */
 
   min-height: 60px;
   max-height: 200px;
@@ -34,6 +34,7 @@
   .taskForm__input {
     margin-right: 10px;
     font-size: 20px;
+    padding-left: 10px;
   }
 }
 
@@ -63,6 +64,15 @@
   .taskForm__submit {
     min-width: 110px;
     font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .taskForm__submit {
+    min-width: 70px;
+    max-height: 40px;
+    font-size: 18px;
+    margin: auto 0;
   }
 }
 

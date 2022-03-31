@@ -24,17 +24,19 @@ function Task({ task, deleteOneTask }) {
   return (
     <li className="taskItem">
       <span className={elementItemText}>{task.text}</span>
-      <input
-        className={elementItemDate}
-        type="date"
-        value={dateTask}
-        onChange={(e) => setDateTask(e.target.value)}
-      />
-      <button
-        className="taskItem__remove"
-        type="submit"
-        onClick={handleItemDtlete}
-      ></button>
+      <form className="taskItem__form">
+        <input
+          className={elementItemDate}
+          type="date"
+          value={dateTask}
+          onChange={(e) => setDateTask(e.target.value)}
+        />
+        <button
+          className="taskItem__remove"
+          type="submit"
+          onClick={handleItemDtlete}
+        ></button>
+      </form>
     </li>
   );
 }
