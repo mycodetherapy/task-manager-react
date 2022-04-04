@@ -4,6 +4,21 @@ import React from "react";
 function Task({ task, deleteOneTask }) {
   const [dateTask, setDateTask] = React.useState(task.date);
 
+
+  React.useEffect(() => {
+    updateTask();
+  }, [dateTask]);
+
+
+  const handleChange = (e) => {
+    setDateTask(e.target.value);
+  }
+
+  const updateTask = () => {
+    task.date = dateTask;
+  };
+
+
   const _isPastDate = () => {
     if (new Date(dateTask).getTime() < new Date().getTime()) return true;
     return false;
@@ -28,8 +43,8 @@ function Task({ task, deleteOneTask }) {
         <input
           className={elementItemDate}
           type="date"
-          value={dateTask}
-          onChange={(e) => setDateTask(e.target.value)}
+          value={dateTask || ""}
+          onChange={handleChange}
         />
         <button
           className="taskItem__remove"

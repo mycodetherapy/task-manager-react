@@ -2,7 +2,7 @@ import "./Main.css";
 import React from "react";
 import Task from "../Task/Task";
 
-function Main({ tasks, addOneTask, updateDate, deleteOneTask }) {
+function Main({ tasks, addOneTask, updateDate, deleteOneTask, handleUpdateTask }) {
   const [taskText, setTaskText] = React.useState("");
 
   const handleSubmit = (e) => {
@@ -35,7 +35,7 @@ function Main({ tasks, addOneTask, updateDate, deleteOneTask }) {
           className="taskForm__input"
           type="text"
           onChange={handleChange}
-          value={taskText}
+          value={taskText || ""}
           maxLength="240"
         />
         <button
@@ -51,7 +51,11 @@ function Main({ tasks, addOneTask, updateDate, deleteOneTask }) {
       <section className="taskItems">
         <ul className="taskItems__container">
           {tasks.map((task) => (
-            <Task key={task._id} task={task} deleteOneTask={deleteOneTask} />
+            <Task
+              key={task._id}
+              task={task}
+              deleteOneTask={deleteOneTask}
+            />
           ))}
         </ul>
       </section>
